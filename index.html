@@ -209,10 +209,34 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 52px 64px;
+      padding: 28px 40px;
       background: rgba(0, 0, 0, 0.42);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* ── Explore button ─────────────────────────────────────── */
+    .hero-explore {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hero-explore:hover { color: rgba(255,255,255,0.9); }
+    .hero-explore svg {
+      animation: arrow-bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes arrow-bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
     }
 
     /* ── Hero mosaic ────────────────────────────────────────── */
@@ -238,9 +262,9 @@
       from { transform: translateX(-50%); }
       to   { transform: translateX(0); }
     }
-    .mosaic-row:nth-child(1) .mosaic-track { animation: film-scroll 22s linear infinite; }
-    .mosaic-row:nth-child(2) .mosaic-track { animation: film-scroll-reverse 28s linear infinite; }
-    .mosaic-row:nth-child(3) .mosaic-track { animation: film-scroll 20s linear infinite; }
+    .mosaic-row:nth-child(1) .mosaic-track { animation: film-scroll 26s linear infinite; }
+    .mosaic-row:nth-child(2) .mosaic-track { animation: film-scroll-reverse 34s linear infinite; }
+    .mosaic-row:nth-child(3) .mosaic-track { animation: film-scroll 24s linear infinite; }
     .mosaic-track img {
       height: 100%;
       width: auto;
@@ -551,11 +575,10 @@
       .hdr-rule, .hdr-label { display: none; }
 
       .hero { height: 50vh; }
-      .hero-inner {
-        padding: 14px 18px;
-      }
-      .hero-title   { font-size: 1.3rem; line-height: 1.1; margin-bottom: 8px; }
-      .hero-sub     { font-size: 11px; margin-bottom: 0; line-height: 1.5; }
+      .hero-inner   { padding: 16px 22px; }
+      .hero-title   { font-size: 1.1rem; line-height: 1.1; margin-bottom: 6px; }
+      .hero-sub     { font-size: 10px; margin-bottom: 0; line-height: 1.5; }
+      .hero-explore { margin-top: 12px; font-size: 9px; }
       .hero-eyebrow { display: none; }
 
       .project { padding: 72px 24px; }
@@ -699,12 +722,18 @@
       <p class="hero-sub">
         A collection of custom websites built for wellness practitioners, musicians, coaches, and creatives.
       </p>
+      <a class="hero-explore" href="#work">
+        Explore
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
 
   </section>
 
   <!-- ── Project 01: Aligned Living Coach ─────────────── -->
-  <section class="project" aria-labelledby="proj1-name">
+  <section class="project" id="work" aria-labelledby="proj1-name">
     <div class="project-inner">
       <div class="project-left">
         <p class="project-num reveal" aria-hidden="true">01</p>
