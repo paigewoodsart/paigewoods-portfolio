@@ -262,9 +262,13 @@
       from { transform: translateX(-50%); }
       to   { transform: translateX(0); }
     }
-    .mosaic-row:nth-child(1) .mosaic-track { animation: film-scroll 26s linear infinite; }
-    .mosaic-row:nth-child(2) .mosaic-track { animation: film-scroll-reverse 34s linear infinite; }
-    .mosaic-row:nth-child(3) .mosaic-track { animation: film-scroll 24s linear infinite; }
+    .mosaic-row-extra { display: none; }
+    .mosaic-row:nth-child(1) .mosaic-track { animation: film-scroll 34s linear infinite; }
+    .mosaic-row:nth-child(2) .mosaic-track { animation: film-scroll-reverse 45s linear infinite; }
+    .mosaic-row:nth-child(3) .mosaic-track { animation: film-scroll 32s linear infinite; }
+    .mosaic-row:nth-child(4) .mosaic-track { animation: film-scroll-reverse 28s linear infinite; }
+    .mosaic-row:nth-child(5) .mosaic-track { animation: film-scroll 32s linear infinite; }
+    .mosaic-row:nth-child(6) .mosaic-track { animation: film-scroll-reverse 22s linear infinite; }
     .mosaic-track img {
       height: 100%;
       width: auto;
@@ -646,7 +650,11 @@
       .hdr { padding: 0 24px; }
       .hdr-rule, .hdr-label { display: none; }
 
-      .hero { height: 50vh; }
+      .hero { height: 100svh; }
+      .mosaic-row-extra { display: flex; }
+      .hero-mosaic { justify-content: space-evenly; }
+      .mosaic-row { flex: none; height: 69px; }
+      .mosaic-track img { height: 100%; }
       .hero-inner   { padding: 16px 22px; }
       .hero-title   { font-size: 1.1rem; line-height: 1.1; margin-bottom: 6px; }
       .hero-sub     { font-size: 10px; margin-bottom: 0; line-height: 1.5; }
@@ -778,6 +786,60 @@
           <img src="images/template-02/template02-ss-1.jpg" alt="" />
           <img src="images/template-05/template-05-ss-6.jpg" alt="" />
           <img src="images/template-03/template03-ss-1.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 4 — mobile only -->
+      <div class="mosaic-row mosaic-row-extra">
+        <div class="mosaic-track">
+          <img src="images/template-05/template-05-ss-new-1.jpg" alt="" />
+          <img src="images/template-03/template03-ss-2.jpg" alt="" />
+          <img src="images/template-01/template-01-ss-2.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-3.jpg" alt="" />
+          <img src="images/template-02/template02-ss-2.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-3.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-1.jpg" alt="" />
+          <img src="images/template-03/template03-ss-2.jpg" alt="" />
+          <img src="images/template-01/template-01-ss-2.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-3.jpg" alt="" />
+          <img src="images/template-02/template02-ss-2.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-3.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 5 — mobile only -->
+      <div class="mosaic-row mosaic-row-extra">
+        <div class="mosaic-track">
+          <img src="images/template-05/template-05-ss-new-2.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-1.jpg" alt="" />
+          <img src="images/template-03/template03-ss-3.jpg" alt="" />
+          <img src="images/template-02/template02-ss-1.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-4.jpg" alt="" />
+          <img src="images/template-01/template01-ss-3.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-2.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-1.jpg" alt="" />
+          <img src="images/template-03/template03-ss-3.jpg" alt="" />
+          <img src="images/template-02/template02-ss-1.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-4.jpg" alt="" />
+          <img src="images/template-01/template01-ss-3.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 6 — mobile only -->
+      <div class="mosaic-row mosaic-row-extra">
+        <div class="mosaic-track">
+          <img src="images/template-05/template-05-ss-new-5.jpg" alt="" />
+          <img src="images/template-02/template02-ss-3.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-2.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-6.jpg" alt="" />
+          <img src="images/template-03/template03-ss-1.jpg" alt="" />
+          <img src="images/template-01/template-01-ss.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-new-5.jpg" alt="" />
+          <img src="images/template-02/template02-ss-3.jpg" alt="" />
+          <img src="images/template-04/template-04-ss-2.jpg" alt="" />
+          <img src="images/template-05/template-05-ss-6.jpg" alt="" />
+          <img src="images/template-03/template03-ss-1.jpg" alt="" />
+          <img src="images/template-01/template-01-ss.jpg" alt="" />
         </div>
       </div>
 
@@ -1028,8 +1090,7 @@
   <!-- ── More Projects ────────────────────────────────── -->
   <section class="more-projects reveal" aria-label="More projects">
     <div class="more-projects-inner">
-      <p class="more-projects-eyebrow">Beyond the templates</p>
-      <h2 class="more-projects-title">More Projects<br /><em>by Paige</em></h2>
+      <h2 class="more-projects-title">Work with<br /><em>Paige</em></h2>
       <p class="more-projects-desc">Branding, consulting, and creative direction work spanning a range of industries and collaborators.</p>
       <a
         class="project-link"
@@ -1037,7 +1098,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        View Work
+        More Info
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 11L11 3M11 3H6M11 3V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
