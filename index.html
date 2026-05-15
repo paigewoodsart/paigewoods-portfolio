@@ -258,11 +258,46 @@
       gap: 3px;
       height: 100%;
       width: max-content;
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     @keyframes film-scroll-reverse {
       from { transform: translateX(-50%); }
       to   { transform: translateX(0); }
     }
+    @-webkit-keyframes film-scroll {
+      from { -webkit-transform: translateX(0); transform: translateX(0); }
+      to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+    }
+    @-webkit-keyframes film-scroll-reverse {
+      from { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+      to   { -webkit-transform: translateX(0); transform: translateX(0); }
+    }
+    /* ── Static mosaic fallback ─────────────────────────────── */
+    .hero-mosaic-static {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 3px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .hero-mosaic-static.visible {
+      opacity: 1;
+    }
+    .hero-mosaic-static img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .hero-mosaic.hidden { opacity: 0; }
+
     .mosaic-row-extra { display: none; }
     .mosaic-row:nth-child(1) .mosaic-track { animation: film-scroll 34s linear infinite; }
     .mosaic-row:nth-child(2) .mosaic-track { animation: film-scroll-reverse 45s linear infinite; }
@@ -623,6 +658,9 @@
       gap: 20px;
       width: max-content;
       animation: film-scroll 45s linear infinite;
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     .film-track img {
       height: 260px;
@@ -729,7 +767,27 @@
   <!-- ── Hero ────────────────────────────────────────── -->
   <section class="hero" aria-label="Introduction">
 
-    <div class="hero-mosaic" aria-hidden="true">
+    <!-- Static fallback grid (shown if animations don't fire) -->
+    <div class="hero-mosaic-static" id="mosaic-static" aria-hidden="true">
+      <img src="images/template-01/template-01-ss.jpg" alt="" />
+      <img src="images/template-02/template02-ss-1.jpg" alt="" />
+      <img src="images/template-03/template03-ss-1.jpg" alt="" />
+      <img src="images/template-04/template-04-ss-1.jpg" alt="" />
+      <img src="images/template-05/template-05-ss-new-1.jpg" alt="" />
+      <img src="images/template-01/template-01-ss-2.jpg" alt="" />
+      <img src="images/template-02/template02-ss-2.jpg" alt="" />
+      <img src="images/template-03/template03-ss-2.jpg" alt="" />
+      <img src="images/template-04/template-04-ss-2.jpg" alt="" />
+      <img src="images/template-05/template-05-ss-new-2.jpg" alt="" />
+      <img src="images/template-01/template01-ss-3.jpg" alt="" />
+      <img src="images/template-02/template02-ss-3.jpg" alt="" />
+      <img src="images/template-03/template03-ss-3.jpg" alt="" />
+      <img src="images/template-04/template-04-ss-3.jpg" alt="" />
+      <img src="images/template-05/template-05-ss-new-3.jpg" alt="" />
+      <img src="images/template-04/template-04-ss-4.jpg" alt="" />
+    </div>
+
+    <div class="hero-mosaic" id="mosaic-animated" aria-hidden="true">
 
       <!-- Row 1 — scrolls left -->
       <div class="mosaic-row">
@@ -1154,6 +1212,21 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Static mosaic fallback — show if animations don't fire within 1s (iOS Safari fix)
+    const mosaicStatic   = document.getElementById('mosaic-static');
+    const mosaicAnimated = document.getElementById('mosaic-animated');
+    let animated = false;
+    const firstTrack = mosaicAnimated.querySelector('.mosaic-track');
+    if (firstTrack) {
+      firstTrack.addEventListener('animationstart', () => { animated = true; }, { once: true });
+    }
+    setTimeout(() => {
+      if (!animated) {
+        mosaicStatic.classList.add('visible');
+        mosaicAnimated.classList.add('hidden');
+      }
+    }, 1000);
   </script>
 </body>
 </html>
