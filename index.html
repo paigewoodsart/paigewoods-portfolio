@@ -69,11 +69,12 @@
       box-shadow: 0 1px 18px rgba(0,0,0,0.05);
     }
     .hdr-name {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 6.5px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: none;
       color: var(--text);
     }
     .hdr-rule {
@@ -338,9 +339,15 @@
       display: block;
       animation: slide-from-right 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
     }
-    .hero-title em {
-      font-style: italic;
-      color: rgba(255,255,255,0.75);
+    .title-byline {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.65);
+      margin-top: 10px;
+      animation: slide-from-right 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
     }
     .hero-sub {
       font-size: 10px;
@@ -849,7 +856,7 @@
       <p class="hero-eyebrow">your professional portfolio site is waiting</p>
       <h1 class="hero-title">
         <span class="title-left">Design Portfolio</span>
-        <span class="title-right"><em>by Paige Woods</em></span>
+        <span class="title-byline">— Paige Woods —</span>
       </h1>
       <p class="hero-sub">
         A collection of custom websites built for wellness practitioners, musicians, coaches, and creatives.
