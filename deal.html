@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>May Website Launch Special — Paige Woods</title>
+  <meta name="description" content="A streamlined website package for small businesses, creatives, and service providers. $600 USD, 4 spots only." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #0A0A0A;
+      --bg-alt:    #111111;
+      --text:      #EEEAE4;
+      --muted:     #888888;
+      --border:    #242424;
+      --tag-bg:    #1A1A1A;
+      --tag-text:  #999999;
+      --max:       1100px;
+      --hdr:       64px;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    .hdr {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--hdr);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .hdr.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 1px 18px rgba(0,0,0,0.05);
+    }
+    .hdr-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .hdr-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin: 0 28px;
+      opacity: 0.6;
+    }
+    .hdr-label {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .hdr-cta {
+      margin-left: 28px;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .hdr-cta:hover {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* ── Page ───────────────────────────────────────────────── */
+    .page {
+      padding-top: calc(var(--hdr) + 80px);
+      padding-bottom: 100px;
+      padding-left: 40px;
+      padding-right: 40px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Eyebrow ─────────────────────────────────────────────── */
+    .deal-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── Title ───────────────────────────────────────────────── */
+    .deal-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+    .deal-title em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* ── Divider ─────────────────────────────────────────────── */
+    .deal-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── Section heading ─────────────────────────────────────── */
+    .deal-section-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── Price callout ───────────────────────────────────────── */
+    .deal-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .deal-price-original {
+      text-decoration: line-through;
+      color: var(--muted);
+      margin-right: 12px;
+    }
+
+    /* ── Body text ───────────────────────────────────────────── */
+    .deal-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    /* ── Lists ───────────────────────────────────────────────── */
+    .deal-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+    .deal-list li {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .deal-list li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      position: relative;
+      top: -2px;
+    }
+    .deal-list li strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* ── Stat row ────────────────────────────────────────────── */
+    .deal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .deal-stat {
+      background: var(--bg-alt);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .deal-stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .deal-stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Timeline ───────────────────────────────────────────── */
+    .deal-timeline {
+      list-style: none;
+    }
+    .deal-timeline li {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #1E1E1E;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 52px;
+    }
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+    .timeline-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────────── */
+    .deal-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border: 1px solid var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: background 0.25s, color 0.25s;
+      margin-top: 40px;
+    }
+    .deal-cta:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .deal-cta svg { transition: transform 0.25s; }
+    .deal-cta:hover svg { transform: translate(3px, -3px); }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .footer {
+      padding: 60px 40px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      text-align: center;
+    }
+    .footer p {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 820px) {
+      .hdr { padding: 0 24px; }
+      .hdr-rule, .hdr-label { display: none; }
+      .page { padding: calc(var(--hdr) + 48px) 24px 80px; }
+      .deal-stats { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────── -->
+  <header class="hdr" id="hdr" role="banner">
+    <a href="index.html" class="hdr-name">PW</a>
+    <div class="hdr-rule" aria-hidden="true"></div>
+    <span class="hdr-label">Web Design Portfolio</span>
+    <a class="hdr-cta" href="https://calendly.com/paigewoodsart/30min" target="_blank" rel="noopener noreferrer">Book Now</a>
+  </header>
+
+  <!-- ── Content ─────────────────────────────────────── -->
+  <main class="page">
+
+    <p class="deal-eyebrow">Limited Time Offer</p>
+    <h1 class="deal-title">May Website<br /><em>Launch Special</em></h1>
+
+    <p class="deal-body">For a limited time, I'm offering a streamlined website package designed for small businesses, creatives, and service providers who need a polished online presence without the extended agency timeline or cost.</p>
+
+    <div class="deal-rule"></div>
+
+    <!-- Package -->
+    <p class="deal-section-title">Package Includes</p>
+    <p class="deal-price"><span class="deal-price-original">$800</span> $600 USD</p>
+    <ul class="deal-list">
+      <li>Custom 2-page website</li>
+      <li>Mobile-responsive design</li>
+      <li>Contact form integration</li>
+      <li>Basic social / media link integration</li>
+      <li>Clean, modern layout tailored to your brand</li>
+    </ul>
+
+    <div class="deal-rule"></div>
+
+    <!-- Availability stats -->
+    <div class="deal-stats">
+      <div class="deal-stat">
+        <p class="deal-stat-value">4</p>
+        <p class="deal-stat-label">Spots Available</p>
+      </div>
+      <div class="deal-stat">
+        <p class="deal-stat-value">May 31</p>
+        <p class="deal-stat-label">Booking Deadline</p>
+      </div>
+      <div class="deal-stat">
+        <p class="deal-stat-value">2–4 wks</p>
+        <p class="deal-stat-label">Turnaround Time</p>
+      </div>
+    </div>
+
+    <div class="deal-rule"></div>
+
+    <!-- Timeline -->
+    <p class="deal-section-title">How It Works</p>
+    <ol class="deal-timeline">
+      <li>
+        <span class="timeline-num">01</span>
+        <div class="timeline-content">
+          <p class="timeline-title">Book a Consultation</p>
+          <p class="timeline-desc">We'll connect for a focused 30-minute call to discuss your vision, goals, and brand direction — so the work starts with clarity.</p>
+        </div>
+      </li>
+      <li>
+        <span class="timeline-num">02</span>
+        <div class="timeline-content">
+          <p class="timeline-title">Reserve Your Spot</p>
+          <p class="timeline-desc">A deposit secures your place in the queue and locks in your May pricing. With only four spots available, this step matters.</p>
+        </div>
+      </li>
+      <li>
+        <span class="timeline-num">03</span>
+        <div class="timeline-content">
+          <p class="timeline-title">Send Your Assets</p>
+          <p class="timeline-desc">Deliver your copy, photography, brand assets, and any links or integrations. The sooner everything arrives, the sooner we build.</p>
+        </div>
+      </li>
+      <li>
+        <span class="timeline-num">04</span>
+        <div class="timeline-content">
+          <p class="timeline-title">Go Live</p>
+          <p class="timeline-desc">Your polished, custom website launches within 2–4 weeks of receiving everything. Clean, considered, and ready for the world.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="deal-rule"></div>
+
+    <!-- Client responsibilities -->
+    <p class="deal-section-title">Client Responsibilities</p>
+    <p class="deal-body">To maintain the project timeline and pricing, clients must provide:</p>
+    <ul class="deal-list">
+      <li>All written website copy / content</li>
+      <li>Brand assets and photography</li>
+      <li>Social media links</li>
+      <li>Any external links, forms, or integrations required for the site</li>
+    </ul>
+
+    <div class="deal-rule"></div>
+
+    <!-- Additional pages -->
+    <p class="deal-section-title">Additional Pages</p>
+    <ul class="deal-list">
+      <li><strong>$125–$200 USD per page</strong> — pricing varies depending on page complexity, custom layouts, and requested integrations</li>
+    </ul>
+
+    <div class="deal-rule"></div>
+
+    <p class="deal-body">This offer is ideal for clients looking for a professional, launch-ready website with a clear scope, efficient process, and strong visual presentation.</p>
+
+    <a class="deal-cta" href="https://calendly.com/paigewoodsart/30min" target="_blank" rel="noopener noreferrer">
+      Book a Consultation
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M3 11L11 3M11 3H6M11 3V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2026 Paige Woods, Web Design &amp; Development</p>
+  </footer>
+
+  <script>
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
